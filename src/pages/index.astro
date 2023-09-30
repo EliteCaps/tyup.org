@@ -1,18 +1,54 @@
 ---
+import {Image} from 'astro:assets';
+
 import Layout from '@layouts/Layout.astro';
+
 import GradientText from '@components/GradientText.astro';
 import Navbar from '@components/Navbar.astro';
+import GradientButton from '@components/GradientButton.astro';
+
+import curvedDash from '@assets/curved-dash.svg';
+import splash from '@assets/splash.svg';
 ---
 
 <Layout title='Tyup: Revolutionize Placements'>
   <main class="px-2">
-    <Navbar />
-    <div class="grid grid-cols-3">
-      <div class="col-span-2">
-        Left
-      </div>
-      <div class="">
-        Right
+    <div class="my-2">
+      <Navbar />
+      <div class="grid grid-cols-3">
+        <div class="col-span-2 flex flex-col justify-center h-screen">
+          <div class="flex flex-col gap-3 text-6xl font-bold">
+            <div class="flex flex-row gap-2 h-14">
+              <span>A Complete</span>
+              <span class="flex flex-col">  
+                <GradientText text={"Solution"} />
+                <Image src={curvedDash} alt={'Curved Dash'} />
+              </span>
+              <span>For</span>
+            </div>
+            <div class="flex flex-row gap-2">
+              <span>Every</span>
+              <div class="relative flex flex-row pr-4">
+                <GradientText text={"Campus Placement"} />
+                <Image width={20} class="absolute right-0 top-0" src={splash} alt='Splash' />
+              </div>
+            </div>
+            <span>Requirement</span>
+          </div>
+
+          <!-- Subtitle -->
+          <div class="text-accent mt-16 w-2/3">
+            <p>Elevating College Placement Success through Seamless Connections, Precision Hiring, and a Transformative Student Experience, Paving the Way for Your Future with End-to-End Automation. Experience the Power of Precision and Success in One Platform. Check out all three platforms!!</p>
+          </div>
+
+          <!-- Contact Us Button -->
+          <div class="my-16 w-60 h-12">
+            <GradientButton text="Explore" />
+          </div>
+        </div>
+        <div class="">
+          Right
+        </div>
       </div>
     </div>
   </main>

@@ -9,8 +9,8 @@ module.exports = {
           'blue-light': '#6880AB',
         },
         'background': {
-          'light': '#0C0C14',
-          'dark': '#0B0C14',
+          'primary': '#0C0C14',
+          'secondary': '#0B0C14',
         },
         'accent': '#939DB8',
       },

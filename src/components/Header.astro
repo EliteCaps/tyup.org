@@ -27,10 +27,12 @@ const routes: Routes[] = [
 ]
 ---
 
-<header class="sticky top-0 z-10">
+<header class="sticky top-0 z-10 bg-background-primary">
     <nav class="flex flex-row h-14 shadow-md border-b border-white/10 justify-between px-2">
         <div class="flex items-center w-100 gap-20 h-full">
-            <Image src={tyup} alt="Tyup Logo"/>
+            <a href="/">
+                <Image src={tyup} alt="Tyup Logo"/>
+            </a>
             <div class="flex flex-row gap-10 h-full">
                 {
                     routes.map((route) => {

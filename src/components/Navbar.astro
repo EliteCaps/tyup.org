@@ -1,0 +1,46 @@
+---
+import tyup from '@assets/tyup-dark.svg';
+import { Image } from 'astro:assets';
+
+interface INavLinks {
+    name: string;
+    path: string;
+}
+
+const navLinks: INavLinks[] = [
+    {
+        name: 'Pricing',
+        path: 'pricing',
+    },
+    {
+        name: 'Customers',
+        path: 'customers',
+    },
+    {
+        name: 'Blog',
+        path: 'blog',
+    },
+    {
+        name: 'Resources',
+        path: 'resources',
+    }
+];
+
+---
+
+<div class="flex flex-row justify-between p-2">
+    <div class="flex flex-row gap-1 items-center">
+        <Image width={22} src={tyup} alt="Tyup"/>
+        <h3 class="text-2xl font-bold font-weight-[700]">campus</h3>
+        <span class="outline outline-1 px-1 text-green-500 rounded-md text-xs">Beta</span>
+    </div>
+    <div class="flex flex-row gap-8 cursor-pointer items-center">
+        {
+            navLinks.map((navLink) => {
+                return (
+                    <a href={navLink.path}>{navLink.name}</a>
+                )
+            })
+        }
+    </div>
+</div>

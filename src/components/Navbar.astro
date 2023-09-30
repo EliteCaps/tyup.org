@@ -2,6 +2,9 @@
 import tyup from '@assets/tyup-dark.svg';
 import { Image } from 'astro:assets';
 
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+
 interface INavLinks {
     name: string;
     path: string;
@@ -28,12 +31,14 @@ const navLinks: INavLinks[] = [
 
 ---
 
-<div class="flex flex-row justify-between p-2">
+<div class="flex flex-row justify-between p-2 h-20">
+    { currentPath !== "" ? 
     <div class="flex flex-row gap-1 items-center">
-        <Image width={22} src={tyup} alt="Tyup"/>
-        <h3 class="text-2xl font-bold font-weight-[700]">campus</h3>
-        <span class="outline outline-1 px-1 text-green-500 rounded-md text-xs">Beta</span>
-    </div>
+        <Image width={22} src={tyup} alt={`Tyup ${currentPath}`}/>
+        <h3 class="text-2xl font-bold font-weight-[700]">{currentPath}</h3>
+        <span class="outline outline-1 px-1 text-green-500 rounded-md text-xs">Dev</span>
+    </div> : <div></div>
+    }
     <div class="flex flex-row gap-8 cursor-pointer items-center">
         {
             navLinks.map((navLink) => {

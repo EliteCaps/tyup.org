@@ -11,6 +11,7 @@ import Navbar from '@components/Navbar.astro'
 import GradientButton from '@components/GradientButton.astro'
 import Tag from '@components/Tag.astro'
 import Card from '@components/Card.astro'
+import AnimatedArrow from '@components/AnimatedArrow.astro'
 
 // Assets
 import curvedDash from '@assets/curved-dash.svg'
@@ -53,7 +54,7 @@ const cards: ICard[] = [
   <main class='px-2'>
     <Navbar />
     <!-- Hero Section -->
-    <div class='lg:grid lg:grid-cols-3'>
+    <div class='relative lg:grid lg:grid-cols-3'>
       <!-- Left Side -->
       <div class='flex flex-col lg:col-span-2 justify-center'>
         <!-- Beta Stage (Only in Laptop) -->
@@ -187,6 +188,9 @@ const cards: ICard[] = [
             </a>
           ))
         }
+      </div>
+      <div class='absolute lg:bottom-4 bottom-0 left-1/2 right-1/2'>
+        <AnimatedArrow />
       </div>
     </div>
   </main>

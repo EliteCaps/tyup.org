@@ -17,37 +17,7 @@ import AnimatedArrow from '@components/AnimatedArrow.astro'
 import curvedDash from '@assets/curved-dash.svg'
 import splash from '@assets/splash.svg'
 
-interface ICard {
-  href: string
-  leadingIcon: string
-  trailingIcon: string
-  title: string
-  body: string
-}
-
-const cards: ICard[] = [
-  {
-    leadingIcon: 'approval',
-    trailingIcon: 'chevron-left',
-    title: 'Tyup Mate',
-    body: `Transforming students' college experience and forging the way for their future success.`,
-    href: '/mate'
-  },
-  {
-    leadingIcon: 'chart',
-    trailingIcon: 'chevron-left',
-    title: 'Tyup Campus',
-    body: `Unlock the Power of Seamless College-Company Connections, Streamlined Verification, and Unmatched Success.`,
-    href: '/campus'
-  },
-  {
-    leadingIcon: 'chart',
-    trailingIcon: 'chevron-left',
-    title: 'Tyup Recruit',
-    body: `Revolutionize your hiring process with speed and precision. Our end-to-end automation delivers top talent for you.`,
-    href: '/recruit'
-  }
-]
+import cards, { DESKTOP_SUBTITLE, TWEET, type ICard } from '@constants/org/Hero'
 ---
 
 <Section>
@@ -92,11 +62,7 @@ const cards: ICard[] = [
       <!-- Laptop Subtitle -->
       <div class='my-8 w-2/3 lg:block hidden'>
         <p class='text-accent text-left'>
-          Elevating College Placement Success through Seamless Connections,
-          Precision Hiring, and a Transformative Student Experience, Paving the
-          Way for Your Future with End-to-End Automation. Experience the Power
-          of Precision and Success in One Platform. Check out all three
-          platforms!!
+          {DESKTOP_SUBTITLE}
         </p>
       </div>
 
@@ -110,8 +76,7 @@ const cards: ICard[] = [
       <!-- Tweet -->
       <div class='mt-8 flex flex-col'>
         <div class='w-96 pl-4 border-l-2 border-primary-blue'>
-          "Tyup is one of the best products I've ever used for my company. Went
-          from 0-100 on logging in 10 minutes. Incredible"
+          {TWEET}
         </div>
         <div class='pl-4 my-4 flex flex-row gap-2'>
           <Icon width={20} class='text-primary-blue' name='mdi:twitter' />
@@ -128,7 +93,7 @@ const cards: ICard[] = [
         <GlowBox size='h-[200px] w-[200px]' blur={182} />
       </div>
       {
-        cards.map((card) => (
+        cards.map((card: ICard) => (
           <a href={card.href} class='cursor-pointer'>
             <Card
               leadingIcon={card.leadingIcon}

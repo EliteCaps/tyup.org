@@ -1,10 +1,9 @@
 ---
-import { Image } from 'astro:assets'
-
 // Layout
 import Section from '@layouts/Section.astro'
 
-import tyup from '@assets/tyup-dark.svg'
+// Components
+import Logo from '@components/Logo.astro'
 
 const pathname = new URL(Astro.request.url).pathname
 const currentPath = pathname.slice(1)
@@ -41,8 +40,7 @@ const navLinks: INavLinks[] = [
     {
       currentPath !== '' ? (
         <div class='lg:flex flex-row gap-1 items-center hidden'>
-          <Image width={22} src={tyup} alt={`Tyup ${currentPath}`} />
-          <h3 class='text-2xl font-bold font-weight-[700]'>{currentPath}</h3>
+          <Logo name={currentPath} />
           <span class='outline outline-1 px-1 text-green-500 rounded-md text-xs'>
             Dev
           </span>

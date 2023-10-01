@@ -15,6 +15,9 @@
       "@sections/*": [
         "src/sections/*"
       ],
+      "@constants/*": [
+        "src/constants/*"
+      ],
     }
   }
 }

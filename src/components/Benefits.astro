@@ -1,0 +1,70 @@
+---
+import { Image } from 'astro:assets';
+interface Info{
+    title: string,
+    desc: string
+}
+
+const Data: Info[]= [
+    {
+        title:"Centralized Information Hub",
+        desc:"Tyup is for all things college-related. From imp. updates to internship opportunities, we've got you covered. "   
+    },
+    {
+        title:"Unlock Seamless Success",
+        desc:"Effortlessly manage applications, interviews, and preparation materials. Focus on your skills and future."   
+    },
+    {
+        title:"Personalized Notifications",
+        desc:"Never miss a beat with timely reminders for exams and interviews ensuring you're always prepared."   
+    },
+    {
+        title:"Smart Resume Management",
+        desc:"We automatically update the resume with proof of work and skills, making you stand out to potential employers."   
+    },
+    {
+        title:"Skill-aligned Applications",
+        desc:"Apply confidently with matched skills and job requirements, ensuring your applications are a perfect fit."   
+    },
+    {
+        title:"Automated Application Track",
+        desc:"We keep an eagle eye on job openings. We automate the application process so you never miss a chance to shine."   
+    },
+    {
+        title:"Collaboration with Peers",
+        desc:"Tyup fosters building connections, working in teams, and gain recognition beyond your college."   
+    },
+    {
+        title:"Discover New Horizons",
+        desc:"Increased  your Placement Opportunities by Expanding your career possibilities with our company network."   
+    },
+    {
+        title:"Job Security",
+        desc:"Tyup establishes bonds for job security, instilling confidence in your employment journey."   
+    }
+    
+]
+
+
+---
+
+
+<section class="py-28 px-36 text-center flex flex-col items-center">
+    <h1 class="text-2xl">Benefits of using Tyup</h1>
+    <p class="text-lg text-[#939DB8] w-[50%] text-center pt-6 pb-[57px]">Tyup is your passport to a brighter future. We understand that your journey through college is more than just academics – it's about preparing for a career that excites you.</p>
+
+    <div class="flex flex-wrap justify-between gap-10">  
+        {Data.map((data)=>{
+            return(
+                <div class="w-[287px] h-[195px] border border-[#939db833] p-6  rounded-xl">
+                    <div class="flex gap-3 pb-6 w-full text-no-wrap">
+                        <Image src="/tick.svg" alt={"tick"} width={20} height={20}></Image>
+                        <h4>{data.title}</h4>
+                    </div>
+                    <p class="text-[#939DB8]">{data.desc}</p>
+                </div>
+            )
+        })}
+     </div>
+     
+</section>

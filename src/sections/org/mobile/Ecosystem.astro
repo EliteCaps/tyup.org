@@ -1,0 +1,55 @@
+---
+import Icon from 'astro-icon'
+import { Image } from 'astro:assets'
+
+import GradientButton from '@components/GradientButton.astro'
+
+import tyup from '@assets/tyup-dark.svg'
+import dashboard from '@assets/dashboard.svg'
+---
+
+<div class='flex flex-col items-center lg:hidden'>
+  <!-- Logo -->
+  <div class='flex gap-2'>
+    <Image width={20} src={tyup} alt='Tyup Mate' />
+    <span class='text-xl font-bold'>mate</span>
+  </div>
+
+  <!-- Title -->
+  <div class='mt-4'>
+    <h2 class='text-4xl font-bold text-center'>
+      Crafting Your End-to-End College Experience for Success
+    </h2>
+  </div>
+
+  <!-- Subtitle -->
+  <div class='mt-4'>
+    <p class='text-xl text-accent text-center'>
+      At Tyup Mate, we're not just revolutionizing placements, we're
+      transforming your entire college experience.
+    </p>
+  </div>
+
+  <!-- Key Features -->
+  <div class='flex flex-col gap-2 mt-4'>
+    <div class='flex flex-row gap-2'>
+      <h3 class='text-2xl'>Shortlisting Chances</h3>
+      <Icon width={30} name='stocks' />
+    </div>
+
+    <div class='flex flex-row gap-2'>
+      <h3 class='text-2xl'>Auto Apply to Jobs</h3>
+      <Icon width={30} name='check' />
+    </div>
+  </div>
+
+  <!-- Image -->
+  <div class='mt-4'>
+    <Image src={dashboard} alt='Tyup Dashboard' />
+  </div>
+
+  <!-- Explore Button -->
+  <div class='my-4 w-60'>
+    <GradientButton text='Explore' />
+  </div>
+</div>

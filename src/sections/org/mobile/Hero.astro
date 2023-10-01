@@ -1,0 +1,123 @@
+---
+import { Image } from 'astro:assets'
+import { Icon } from 'astro-icon'
+
+// Components
+import GradientText from '@components/GradientText.astro'
+import GradientButton from '@components/GradientButton.astro'
+import AnimatedArrow from '@components/AnimatedArrow.astro'
+
+// Assets
+import curvedDash from '@assets/curved-dash.svg'
+import splash from '@assets/splash.svg'
+
+interface ICard {
+  href: string
+  leadingIcon: string
+  trailingIcon: string
+  title: string
+  body: string
+}
+
+const cards: ICard[] = [
+  {
+    leadingIcon: 'approval',
+    trailingIcon: 'chevron-left',
+    title: 'Tyup Mate',
+    body: `Transforming students' college experience and forging the way for their future success.`,
+    href: '/mate'
+  },
+  {
+    leadingIcon: 'chart',
+    trailingIcon: 'chevron-left',
+    title: 'Tyup Campus',
+    body: `Unlock the Power of Seamless College-Company Connections, Streamlined Verification, and Unmatched Success.`,
+    href: '/campus'
+  },
+  {
+    leadingIcon: 'chart',
+    trailingIcon: 'chevron-left',
+    title: 'Tyup Recruit',
+    body: `Revolutionize your hiring process with speed and precision. Our end-to-end automation delivers top talent for you.`,
+    href: '/recruit'
+  }
+]
+---
+
+<!-- Hero Section -->
+<div class='relative lg:hidden block'>
+  <!-- Left Side -->
+  <div class='flex flex-col justify-center'>
+    <!-- Hero Heading -->
+    <div class='flex flex-col text-5xl font-bold items-center'>
+      <div class='flex flex-row gap-2 h-14'>
+        <span>A</span>
+        <span>Complete</span>
+      </div>
+      <div class='flex flex-row gap-2 h-14'>
+        <span class='flex flex-col'>
+          <GradientText text={'Solution'} />
+          <Image class='w-[180px]' src={curvedDash} alt={'Curved Dash'} />
+        </span>
+        <span>For</span>
+        <span>Every</span>
+      </div>
+      <div class='relative pr-3 h-14'>
+        <GradientText text={'Campus Placement'} />
+        <Image
+          width={15}
+          class='absolute right-0 top-0'
+          src={splash}
+          alt='Splash'
+        />
+      </div>
+      <span>Requirement</span>
+    </div>
+
+    <!-- Mobile Subtitle -->
+    <div class='flex items-center relative mt-8 w-full block p-2'>
+      <p class='text-accent text-xl text-center'>
+        Elevating College Placement Success through Seamless Connections,
+        Precision Hiring, and a Transformative Student Experience.
+      </p>
+      <div class='absolute inset-0 flex items-center justify-center z-[-1]'>
+        <div
+          class='h-32 w-32 bg-primary-blue rounded-full mx-auto my-auto'
+          style='filter: blur(75px);'
+        >
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Routes -->
+    <div class='flex justify-between m-8'>
+      {
+        cards.map((card) => (
+          <a href={card.href}>
+            <div class='flex gap-2'>
+              {card.title}
+              <Icon width={20} name='chevron-left' />
+            </div>
+          </a>
+        ))
+      }
+    </div>
+
+    <!-- Explore Button -->
+    <div class='flex justify-center'>
+      <div class='my-4 w-60'>
+        <GradientButton text='Explore' />
+      </div>
+    </div>
+
+    <!-- Mobile Divider -->
+    <div class='flex flex-row justify-center mt-10 mb-6'>
+      <div class='w-[80%] border-b border-[#939DB8]'></div>
+    </div>
+  </div>
+
+  <!-- Animated Arrow -->
+  <div class='absolute bottom-0 left-1/2 right-1/2'>
+    <AnimatedArrow />
+  </div>
+</div>

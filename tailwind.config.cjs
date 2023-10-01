@@ -4,19 +4,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'primary': {
-          "blue":'#194DAB',
-          'blue-light': '#6880AB',
+        primary: {
+          blue: '#194DAB',
+          black: '#0C0C14'
         },
-        'background': {
-          'primary': '#0C0C14',
-          'secondary': '#0B0C14',
+        secondary: {
+          blue: '#6880AB',
+          black: '#0B0C14'
         },
-        'accent': '#939DB8',
+        accent: '#939DB8'
       },
       fontFamily: {
-        sans: ['DM Sans', 'sans-serif'],
-      },
+        sans: ['DM Sans', 'sans-serif']
+      }
     }
   },
   plugins: []

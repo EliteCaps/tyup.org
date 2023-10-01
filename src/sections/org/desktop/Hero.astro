@@ -2,6 +2,9 @@
 import { Image } from 'astro:assets'
 import { Icon } from 'astro-icon'
 
+// Layout
+import Section from '@layouts/Section.astro'
+
 // Components
 import GradientText from '@components/GradientText.astro'
 import GradientButton from '@components/GradientButton.astro'
@@ -46,99 +49,102 @@ const cards: ICard[] = [
 ]
 ---
 
-<div class='relative lg:grid grid-cols-3 hidden'>
-  <!-- Left Side -->
-  <div class='flex flex-col col-span-2 justify-center'>
-    <!-- Beta Stage -->
-    <div class='mb-2'>
-      <Tag text='Development' />
-    </div>
-
-    <!-- Hero Heading -->
-    <div class='flex flex-col text-6xl font-bold'>
-      <div class='relative flex flex-row gap-2 h-[70px]'>
-        <span>A</span>
-        <span>Complete</span>
-        <span class='flex flex-col'>
-          <GradientText text={'Solution'} />
-          <Image
-            class='absolute bottom-0 w-[226px]'
-            src={curvedDash}
-            alt={'Curved Dash'}
-          />
-        </span>
-        <span>For</span>
+<Section>
+  <div class='relative lg:grid grid-cols-3 hidden'>
+    <!-- Left Side -->
+    <div class='flex flex-col col-span-2 justify-center'>
+      <!-- Beta Stage -->
+      <div class='mb-2'>
+        <Tag text='Development' />
       </div>
-      <div class='flex flex-row gap-2 h-[70px]'>
-        <span>Every</span>
-        <div class='relative flex flex-row pr-4'>
-          <GradientText text={'Campus Placement'} />
-          <Image
-            width={20}
-            class='absolute right-0 top-0'
-            src={splash}
-            alt='Splash'
-          />
+
+      <!-- Hero Heading -->
+      <div class='flex flex-col text-6xl font-bold'>
+        <div class='relative flex flex-row gap-2 h-[70px]'>
+          <span>A</span>
+          <span>Complete</span>
+          <span class='flex flex-col'>
+            <GradientText text={'Solution'} />
+            <Image
+              class='absolute bottom-0 w-[226px]'
+              src={curvedDash}
+              alt={'Curved Dash'}
+            />
+          </span>
+          <span>For</span>
+        </div>
+        <div class='flex flex-row gap-2 h-[70px]'>
+          <span>Every</span>
+          <div class='relative flex flex-row pr-4'>
+            <GradientText text={'Campus Placement'} />
+            <Image
+              width={20}
+              class='absolute right-0 top-0'
+              src={splash}
+              alt='Splash'
+            />
+          </div>
+        </div>
+        <div>Requirement</div>
+      </div>
+
+      <!-- Laptop Subtitle -->
+      <div class='my-8 w-2/3 lg:block hidden'>
+        <p class='text-accent text-left'>
+          Elevating College Placement Success through Seamless Connections,
+          Precision Hiring, and a Transformative Student Experience, Paving the
+          Way for Your Future with End-to-End Automation. Experience the Power
+          of Precision and Success in One Platform. Check out all three
+          platforms!!
+        </p>
+      </div>
+
+      <!-- Explore Button -->
+      <div class='flex justify-start'>
+        <div class='my-4 w-60'>
+          <GradientButton text='Explore' />
         </div>
       </div>
-      <div>Requirement</div>
-    </div>
 
-    <!-- Laptop Subtitle -->
-    <div class='my-8 w-2/3 lg:block hidden'>
-      <p class='text-accent text-left'>
-        Elevating College Placement Success through Seamless Connections,
-        Precision Hiring, and a Transformative Student Experience, Paving the
-        Way for Your Future with End-to-End Automation. Experience the Power of
-        Precision and Success in One Platform. Check out all three platforms!!
-      </p>
-    </div>
-
-    <!-- Explore Button -->
-    <div class='flex justify-start'>
-      <div class='my-4 w-60'>
-        <GradientButton text='Explore' />
+      <!-- Tweet -->
+      <div class='mt-8 flex flex-col'>
+        <div class='w-96 pl-4 border-l-2 border-primary-blue'>
+          "Tyup is one of the best products I've ever used for my company. Went
+          from 0-100 on logging in 10 minutes. Incredible"
+        </div>
+        <div class='pl-4 my-4 flex flex-row gap-2'>
+          <Icon width={20} class='text-primary-blue' name='mdi:twitter' />
+          <span class='text-accent text-sm'
+            >Prateek Shukla | Founder & CEO of Masai School</span
+          >
+        </div>
       </div>
     </div>
 
-    <!-- Tweet -->
-    <div class='mt-8 flex flex-col'>
-      <div class='w-96 pl-4 border-l-2 border-primary-blue'>
-        "Tyup is one of the best products I've ever used for my company. Went
-        from 0-100 on logging in 10 minutes. Incredible"
-      </div>
-      <div class='pl-4 my-4 flex flex-row gap-2'>
-        <Icon width={20} class='text-primary-blue' name='mdi:twitter' />
-        <span class='text-accent text-sm'
-          >Prateek Shukla | Founder & CEO of Masai School</span
+    <!-- Right Side -->
+    <div class='relative gap-6 flex flex-col justify-center'>
+      <div class='absolute inset-0 flex items-center justify-center z-[-1]'>
+        <div
+          class='h-[200px] w-[200px] bg-primary-blue rounded-full mx-auto my-auto'
+          style='filter: blur(182px);'
         >
+        </div>
       </div>
+      {
+        cards.map((card) => (
+          <a href={card.href} class='cursor-pointer'>
+            <Card
+              leadingIcon={card.leadingIcon}
+              trailingIcon={card.trailingIcon}
+              title={card.title}
+              body={card.body}
+            />
+          </a>
+        ))
+      }
+    </div>
+    <div class='absolute bottom-4 left-1/2 right-1/2'>
+      <AnimatedArrow />
     </div>
   </div>
-
-  <!-- Right Side -->
-  <div class='relative gap-6 flex flex-col justify-center'>
-    <div class='absolute inset-0 flex items-center justify-center z-[-1]'>
-      <div
-        class='h-[200px] w-[200px] bg-primary-blue rounded-full mx-auto my-auto'
-        style='filter: blur(182px);'
-      >
-      </div>
-    </div>
-    {
-      cards.map((card) => (
-        <a href={card.href} class='cursor-pointer'>
-          <Card
-            leadingIcon={card.leadingIcon}
-            trailingIcon={card.trailingIcon}
-            title={card.title}
-            body={card.body}
-          />
-        </a>
-      ))
-    }
-  </div>
-  <div class='absolute bottom-4 left-1/2 right-1/2'>
-    <AnimatedArrow />
-  </div>
-</div>
+</Section>

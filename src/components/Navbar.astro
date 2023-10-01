@@ -1,6 +1,10 @@
 ---
-import tyup from '@assets/tyup-dark.svg'
 import { Image } from 'astro:assets'
+
+// Layout
+import Section from '@layouts/Section.astro'
+
+import tyup from '@assets/tyup-dark.svg'
 
 const pathname = new URL(Astro.request.url).pathname
 const currentPath = pathname.slice(1)
@@ -30,29 +34,31 @@ const navLinks: INavLinks[] = [
 ]
 ---
 
-<div
-  class='flex flex-row lg:justify-between justify-evenly h-10 lg:my-6 mt-2 mb-14'
->
-  {
-    currentPath !== '' ? (
-      <div class='lg:flex flex-row gap-1 items-center hidden'>
-        <Image width={22} src={tyup} alt={`Tyup ${currentPath}`} />
-        <h3 class='text-2xl font-bold font-weight-[700]'>{currentPath}</h3>
-        <span class='outline outline-1 px-1 text-green-500 rounded-md text-xs'>
-          Dev
-        </span>
-      </div>
-    ) : (
-      <div class='lg:block hidden' />
-    )
-  }
+<Section>
   <div
-    class='flex flex-row lg:gap-8 justify-evenly lg:w-auto w-full cursor-pointer items-center'
+    class='flex flex-row lg:justify-between justify-evenly h-10 lg:my-6 mt-2 mb-14'
   >
     {
-      navLinks.map((navLink) => {
-        return <a href={navLink.path}>{navLink.name}</a>
-      })
+      currentPath !== '' ? (
+        <div class='lg:flex flex-row gap-1 items-center hidden'>
+          <Image width={22} src={tyup} alt={`Tyup ${currentPath}`} />
+          <h3 class='text-2xl font-bold font-weight-[700]'>{currentPath}</h3>
+          <span class='outline outline-1 px-1 text-green-500 rounded-md text-xs'>
+            Dev
+          </span>
+        </div>
+      ) : (
+        <div class='lg:block hidden' />
+      )
     }
+    <div
+      class='flex flex-row lg:gap-8 justify-evenly lg:w-auto w-full cursor-pointer items-center'
+    >
+      {
+        navLinks.map((navLink) => {
+          return <a href={navLink.path}>{navLink.name}</a>
+        })
+      }
+    </div>
   </div>
-</div>
+</Section>

@@ -1,54 +1,192 @@
 ---
-import {Image} from 'astro:assets';
+import { Image } from 'astro:assets'
+import { Icon } from 'astro-icon'
 
-import Layout from '@layouts/Layout.astro';
+// Layout
+import Layout from '@layouts/Layout.astro'
 
-import GradientText from '@components/GradientText.astro';
-import Navbar from '@components/Navbar.astro';
-import GradientButton from '@components/GradientButton.astro';
+// Components
+import GradientText from '@components/GradientText.astro'
+import Navbar from '@components/Navbar.astro'
+import GradientButton from '@components/GradientButton.astro'
+import Tag from '@components/Tag.astro'
+import Card from '@components/Card.astro'
 
-import curvedDash from '@assets/curved-dash.svg';
-import splash from '@assets/splash.svg';
+// Assets
+import curvedDash from '@assets/curved-dash.svg'
+import splash from '@assets/splash.svg'
+
+interface ICard {
+  href: string
+  leadingIcon: string
+  trailingIcon: string
+  title: string
+  body: string
+}
+
+const cards: ICard[] = [
+  {
+    leadingIcon: 'approval',
+    trailingIcon: 'chevron-left',
+    title: 'Tyup Mate',
+    body: `Transforming students' college experience and forging the way for their future success.`,
+    href: '/mate'
+  },
+  {
+    leadingIcon: 'chart',
+    trailingIcon: 'chevron-left',
+    title: 'Tyup Campus',
+    body: `Unlock the Power of Seamless College-Company Connections, Streamlined Verification, and Unmatched Success.`,
+    href: '/campus'
+  },
+  {
+    leadingIcon: 'chart',
+    trailingIcon: 'chevron-left',
+    title: 'Tyup Recruit',
+    body: `Revolutionize your hiring process with speed and precision. Our end-to-end automation delivers top talent for you.`,
+    href: '/recruit'
+  }
+]
 ---
 
 <Layout title='Tyup: Revolutionize Placements'>
-  <main class="px-2">
-    <div class="my-2">
-      <Navbar />
-      <div class="grid grid-cols-3">
-        <div class="col-span-2 flex flex-col justify-center h-screen">
-          <div class="flex flex-col gap-3 text-6xl font-bold">
-            <div class="flex flex-row gap-2 h-14">
-              <span>A Complete</span>
-              <span class="flex flex-col">  
-                <GradientText text={"Solution"} />
-                <Image src={curvedDash} alt={'Curved Dash'} />
-              </span>
-              <span>For</span>
-            </div>
-            <div class="flex flex-row gap-2">
-              <span>Every</span>
-              <div class="relative flex flex-row pr-4">
-                <GradientText text={"Campus Placement"} />
-                <Image width={20} class="absolute right-0 top-0" src={splash} alt='Splash' />
-              </div>
-            </div>
-            <span>Requirement</span>
-          </div>
+  <main class='px-2'>
+    <Navbar />
+    <!-- Hero Section -->
+    <div class='lg:grid lg:grid-cols-3'>
+      <!-- Left Side -->
+      <div class='flex flex-col lg:col-span-2 justify-center'>
+        <!-- Beta Stage (Only in Laptop) -->
+        <div class='mb-2 lg:block hidden'>
+          <Tag text='Development' />
+        </div>
 
-          <!-- Subtitle -->
-          <div class="text-accent mt-16 w-2/3">
-            <p>Elevating College Placement Success through Seamless Connections, Precision Hiring, and a Transformative Student Experience, Paving the Way for Your Future with End-to-End Automation. Experience the Power of Precision and Success in One Platform. Check out all three platforms!!</p>
+        <!-- Laptop Hero Heading -->
+        <div class='flex flex-col text-6xl font-bold lg:block hidden'>
+          <div class='relative flex flex-row gap-2 h-[70px]'>
+            <span>A</span>
+            <span>Complete</span>
+            <span class='flex flex-col'>
+              <GradientText text={'Solution'} />
+              <Image
+                class='absolute bottom-0 w-[226px]'
+                src={curvedDash}
+                alt={'Curved Dash'}
+              />
+            </span>
+            <span>For</span>
           </div>
+          <div class='flex flex-row gap-2 h-[70px]'>
+            <span>Every</span>
+            <div class='relative flex flex-row pr-4'>
+              <GradientText text={'Campus Placement'} />
+              <Image
+                width={20}
+                class='absolute right-0 top-0'
+                src={splash}
+                alt='Splash'
+              />
+            </div>
+          </div>
+          <div>Requirement</div>
+        </div>
 
-          <!-- Contact Us Button -->
-          <div class="my-16 w-60 h-12">
-            <GradientButton text="Explore" />
+        <!-- Mobile Hero Heading -->
+        <div class='flex flex-col text-5xl font-bold items-center lg:hidden'>
+          <div class='flex flex-row gap-2 h-14'>
+            <span>A</span>
+            <span>Complete</span>
+          </div>
+          <div class='flex flex-row gap-2 h-14'>
+            <span class='flex flex-col'>
+              <GradientText text={'Solution'} />
+              <Image class='w-[180px]' src={curvedDash} alt={'Curved Dash'} />
+            </span>
+            <span>For</span>
+            <span>Every</span>
+          </div>
+          <div class='relative pr-3 h-14'>
+            <GradientText text={'Campus Placement'} />
+            <Image
+              width={15}
+              class='absolute right-0 top-0'
+              src={splash}
+              alt='Splash'
+            />
+          </div>
+          <span>Requirement</span>
+        </div>
+
+        <!-- Laptop Subtitle -->
+        <div class='my-8 w-2/3 lg:block hidden'>
+          <p class='text-accent text-left'>
+            Elevating College Placement Success through Seamless Connections,
+            Precision Hiring, and a Transformative Student Experience, Paving
+            the Way for Your Future with End-to-End Automation. Experience the
+            Power of Precision and Success in One Platform. Check out all three
+            platforms!!
+          </p>
+        </div>
+
+        <!-- Mobile Subtitle -->
+        <div
+          class='flex items-center relative mt-6 h-40 w-full lg:hidden block p-2'
+        >
+          <p class='text-accent text-xl text-center'>
+            Elevating College Placement Success through Seamless Connections,
+            Precision Hiring, and a Transformative Student Experience.
+          </p>
+          <div class='absolute inset-0 flex items-center justify-center z-[-1]'>
+            <div
+              class='h-32 w-32 bg-primary-blue rounded-full mx-auto my-auto'
+              style='filter: blur(75px);'
+            >
+            </div>
           </div>
         </div>
-        <div class="">
-          Right
+
+        <!-- Explore Button -->
+        <div class='flex lg:justify-start justify-center'>
+          <div class='my-4 w-60'>
+            <GradientButton text='Explore' />
+          </div>
         </div>
+
+        <div class='mt-8 lg:flex flex-col hidden'>
+          <div class='w-96 pl-4 border-l-2 border-primary-blue'>
+            "Tyup is one of the best products I've ever used for my company.
+            Went from 0-100 on logging in 10 minutes. Incredible"
+          </div>
+          <div class='pl-4 my-4 flex flex-row gap-2'>
+            <Icon width={20} class='text-primary-blue' name='mdi:twitter' />
+            <span class='text-accent text-sm'
+              >Prateek Shukla | Founder & CEO of Masai School</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Side -->
+      <div class='relative gap-6 lg:flex flex-col hidden justify-center'>
+        <div class='absolute inset-0 flex items-center justify-center z-[-1]'>
+          <div
+            class='h-[200px] w-[200px] bg-primary-blue rounded-full mx-auto my-auto'
+            style='filter: blur(182px);'
+          >
+          </div>
+        </div>
+        {
+          cards.map((card) => (
+            <a href={card.href} class='cursor-pointer'>
+              <Card
+                leadingIcon={card.leadingIcon}
+                trailingIcon={card.trailingIcon}
+                title={card.title}
+                body={card.body}
+              />
+            </a>
+          ))
+        }
       </div>
     </div>
   </main>

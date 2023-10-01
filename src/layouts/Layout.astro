@@ -1,5 +1,5 @@
 ---
-import Header from '@components/Header.astro';
+import Header from '@components/Header.astro'
 
 interface Props {
   title: string
@@ -16,13 +16,16 @@ const { title } = Astro.props
     <meta name='viewport' content='width=device-width' />
     <link rel='icon' type='image/svg+xml' href='/tyup-light.svg' />
     <meta name='generator' content={Astro.generator} />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap'
+      rel='stylesheet'
+    />
     <title>{title}</title>
   </head>
-  <body class="px-16">
+  <body class='lg:mx-32 px-4'>
     <Header />
     <slot />
   </body>
@@ -31,12 +34,12 @@ const { title } = Astro.props
 <style is:global>
   html {
     color: white;
-    background: #0C0C14;
+    background: #0c0c14;
   }
 
-  h1, h2 {
+  h1,
+  h2 {
     font-weight: 700;
     /* color: #939db81a; */
   }
-
 </style>

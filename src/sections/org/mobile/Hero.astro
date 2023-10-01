@@ -8,6 +8,7 @@ import Section from '@layouts/Section.astro'
 // Components
 import GradientText from '@components/GradientText.astro'
 import GradientButton from '@components/GradientButton.astro'
+import GlowBox from '@components/GlowBox.astro'
 import AnimatedArrow from '@components/AnimatedArrow.astro'
 import Divider from '@components/Divider.astro'
 
@@ -86,11 +87,7 @@ const cards: ICard[] = [
           Precision Hiring, and a Transformative Student Experience.
         </p>
         <div class='absolute inset-0 flex items-center justify-center z-[-1]'>
-          <div
-            class='h-32 w-32 bg-primary-blue rounded-full mx-auto my-auto'
-            style='filter: blur(75px);'
-          >
-          </div>
+          <GlowBox />
         </div>
       </div>
 

@@ -8,6 +8,7 @@ import Section from '@layouts/Section.astro'
 // Components
 import GradientText from '@components/GradientText.astro'
 import GradientButton from '@components/GradientButton.astro'
+import GlowBox from '@components/GlowBox.astro'
 import Tag from '@components/Tag.astro'
 import Card from '@components/Card.astro'
 import AnimatedArrow from '@components/AnimatedArrow.astro'
@@ -124,11 +125,7 @@ const cards: ICard[] = [
     <!-- Right Side -->
     <div class='relative gap-6 flex flex-col justify-center'>
       <div class='absolute inset-0 flex items-center justify-center z-[-1]'>
-        <div
-          class='h-[200px] w-[200px] bg-primary-blue rounded-full mx-auto my-auto'
-          style='filter: blur(182px);'
-        >
-        </div>
+        <GlowBox size='h-[200px] w-[200px]' blur={182} />
       </div>
       {
         cards.map((card) => (

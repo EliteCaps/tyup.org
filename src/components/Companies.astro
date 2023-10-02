@@ -1,75 +1,22 @@
 ---
 // import { Image } from 'astro';
-const {companies} = Astro.props;
-import { Image } from 'astro:assets';
-interface Companies {
-    path: string;
-}
-
-const Companies1: Companies[] = [
-    {
-
-        path: '/redis.svg',
-    },
-    {
-
-        path: '/redis.svg',
-    },
-    {
-
-        path: '/redis.svg',
-    },
-    {
-        path: '/redis.svg',
-    },
-    {
-        path: '/redis.svg',
-    },
-    {
-        path: '/redis.svg',
-    },
-    {
-        path: '/redis.svg',
-    },{
-        path: '/redis.svg',
-    },
-    {
-        path: '/redis.svg',
-    },
-    {
-        path: '/redis.svg',
-    },
-    {
-        path: '/redis.svg',
-    },
-    {
-        path: '/redis.svg',
-    },
-    {
-        path: '/redis.svg',
-    },
-    {
-        path: '/redis.svg',
-    },
-    {
-        path: '/redis.svg',
-    },
-    {
-        path: '/redis.svg',
-    }
-];
+const { companies } = Astro.props
+import { Image } from 'astro:assets'
+import CompaniesInfo, { type Company } from '@constants/students/information'
 ---
 
-<div class="flex flex-wrap gap-2">
-    <!-- <h1>Hi</h1> -->
-    {Companies1.map(()=>{
-        return(
-
-            <Image src="/redis.svg" alt="Hello " width={160} height={160}/>
-        )
-
-    })}
-
-
-
+<div class='flex flex-wrap gap-2'>
+  {
+    CompaniesInfo.map(() => {
+      return (
+        <Image
+          class='filter grayscale-[96%]'
+          src='/redis.svg'
+          alt='Hello '
+          width={160}
+          height={160}
+        />
+      )
+    })
+  }
 </div>

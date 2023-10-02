@@ -1,0 +1,26 @@
+---
+import GradientButton from '../../components/GradientButton.astro'
+import GradientText from '../../components/GradientText.astro'
+import Section from '@layouts/Section.astro'
+---
+
+<Section>
+  <main
+    class='font-normal text-center flex flex-col items-center gap-10 h-[70vh] justify-center'
+  >
+    <!-- <h1 class="text-7xl"></h1> -->
+    <span class='text-7xl font-bold'>
+      <GradientText class='text-7xl' text='Maximize Shortlisting Success' />
+    </span>
+
+    <p class='text-lg text-[#939DB8]'>
+      Tyup empowers students to excel in campus placements. With its
+      comprehensive ecosystem connecting students, colleges and companies,
+      shortlisting success becomes achievable..
+    </p>
+
+    <div class='text-lg w-[20%] p-5'>
+      <GradientButton text='Join Waitlist' path='/' />
+    </div>
+  </main>
+</Section>

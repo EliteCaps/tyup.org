@@ -1,10 +1,19 @@
 ---
 import { Image } from 'astro:assets'
+import GlowBox from '@components/GlowBox.astro'
+const style = ''
 ---
 
 <section
-  class='flex flex-col items-center justify-center gap-10 py-28 bg-white'
+  class='flex flex-col items-center justify-center gap-10 py-28 pt-80 bg-white relative'
 >
+  <div
+    class='absolute left-[20%] top-[-40%] w-[60vw] h-[70vh] text-center bg-[#04050C] rounded-[32px] py-20'
+  >
+    <p class='text-2xl'>One platform for everything.</p>
+    <h1 class='text-7xl py-5'>Just Apply!</h1>
+    <GlowBox size='h-[250px] w-[200px]' blur={100} />
+  </div>
   <h1
     class='text-7xl py-20 text-transparent bg-clip-text bg-gradient-to-r from-[#0C0C14] to-[#194DAB] whitespace-nowrap'
   >

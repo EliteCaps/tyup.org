@@ -1,0 +1,30 @@
+---
+import Logo from '@components/Logo.astro'
+
+import GradientButton from '@components/GradientButton.astro'
+
+interface Props {
+  name: string
+  title: string
+  description: string
+  path: string
+  buttonText: string
+}
+
+const { name = '', title, description, path, buttonText } = Astro.props as Props
+---
+
+<div
+  class='flex flex-col items-center text-center border-b border-white/20 mt-2 py-10 lg:py-40'
+>
+  <Logo name={name} className='mb-4 lg:mb-8' width={30} />
+  <h1 class='text-3xl lg:text-5xl mb-3 lg:mb-6'>
+    {title}
+  </h1>
+  <p class='text-accent text-xl lg:text-2xl mb-8 lg:mb-10'>
+    {description}
+  </p>
+  <div>
+    <GradientButton text={buttonText} path={path} />
+  </div>
+</div>

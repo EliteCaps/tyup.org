@@ -1,4 +1,4 @@
-interface ICTA {
+interface Info {
   icon: string
   title: string
   body: string
@@ -6,7 +6,7 @@ interface ICTA {
   buttonText?: string
 }
 
-const CTAs: ICTA[] = [
+const INFOs: Info[] = [
   {
     icon: 'Union',
     title: 'Your Privacy is Our Priority',
@@ -23,4 +23,4 @@ const CTAs: ICTA[] = [
   }
 ]
 
-export { CTAs as default, type ICTA }
+export { INFOs as default, type Info }

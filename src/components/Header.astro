@@ -1,9 +1,7 @@
 ---
-import { Image } from 'astro:assets'
 import Icon from 'astro-icon'
 
 import GradientButton from './GradientButton.astro'
-import tyup from '@assets/tyup-dark.svg'
 import Section from '@layouts/Section.astro'
 
 import Logo from '@components/Logo.astro'
@@ -41,7 +39,7 @@ const routes: Routes[] = [
       <div class='flex items-center lg:w-100 w-auto lg:gap-20 h-full'>
         <!-- Laptop Brand Logo -->
         <a href='/' class='lg:block hidden'>
-          <Image width={20} src={tyup} alt='Tyup Logo' />
+          <Logo name={currentPath} />
         </a>
 
         <!-- Mobile Brand Logo -->

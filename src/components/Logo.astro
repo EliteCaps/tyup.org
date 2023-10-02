@@ -3,25 +3,35 @@ import { Image } from 'astro:assets'
 
 // Assets
 import tyup from '@assets/tyup-dark.svg'
+import tyupMate from '@assets/tyup-mate.svg'
+import tyupCampus from '@assets/tyup-campus.svg'
+import tyupRecruit from '@assets/tyup-recruit.svg'
 
 interface Props {
   name: string
-  width?: number
   className?: string
   textSize?: string
   textColor?: string
 }
 
-const {
-  name,
-  width = 20,
-  className,
-  textSize = 'text-2xl',
-  textColor = 'text-white'
-} = Astro.props
+const { name, className } = Astro.props
+
+let img: ImageMetadata = tyup
+switch (name) {
+  case 'mate':
+    img = tyupMate
+    break
+  case 'campus':
+    img = tyupCampus
+    break
+  case 'recruit':
+    img = tyupRecruit
+    break
+  default:
+    break
+}
 ---
 
-<div class=`flex flex-row gap-1 items-center ${className}`>
-  <Image width={width} src={tyup} alt={`Tyup ${name}`} />
-  <h3 class=`${textSize} ${textColor} font-bold font-weight-[700]`>{name}</h3>
+<div class=`${className}`>
+  <Image src={img} alt={`Tyup ${name}`} />
 </div>

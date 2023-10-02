@@ -6,65 +6,40 @@ interface IFeature {
 }
 
 interface IFeatureProps {
-  name: string
   title: string
   subtitle: string
   features: IFeature[]
-  path: string
 }
 
 const FEATURES: IFeatureProps[] = [
   {
-    name: 'mate',
-    path: '/mate',
-    title: 'Crafting Your End-to-End College Experience for Success',
-    subtitle: `At Tyup Mate, we're not just revolutionizing placements, we're transforming your entire college experience. Join us, and together, we'll pave the way to your future success.`,
+    title: 'Effortless Hiring with Automated Solutions',
+    subtitle: `Monitor the entire on-campus placement journey, from shortlisting and evaluations to interviews. Experience enhanced efficiency in your hiring process with the help of automation.`,
     features: [
       {
         leadingIcon: 'approval',
-        title: 'Shortlisting Chances',
-        body: `Increase the Possibility of Getting Shortlisted for Company's Assessments and Interviews with Tyup.`
+        title: 'Track Candidates',
+        body: `Enhance Your Recruitment Strategy with Advanced Candidate Tracking and Analytics`
       },
       {
-        leadingIcon: 'check',
-        title: 'Auto Apply to Jobs',
-        body: 'Predict Future Success: Harnessing Past Recruitment Insights for On-Campus Placements.'
+        leadingIcon: 'stocks',
+        title: 'Data-driven approach',
+        body: 'Predict Future Success: Harnessing Past Recruitment Insights for On-Campus Placements'
       }
     ]
   },
   {
-    name: 'campus',
-    path: '/campus',
-    title: 'Your End-to-End Solution for Campus Success',
+    title: `Save Organization's Time and Resources`,
     subtitle:
-      'Unlock the Power of Seamless College-Company Connections, Streamlined Verification, and Unmatched Success. Tyup offers a unique blend of features and benefits for colleges. Explore Now!!',
+      'Unlock efficiency and resource optimization for your organization. Tyup streamlines processes, saving valuable time and resources while maximizing results.',
     features: [
       {
         leadingIcon: 'approval',
-        title: 'Call Companies in 1 Click ',
-        body: 'With a single click, college can engage with HR and companies, showcase their strengths & offerings.'
+        title: 'Detailed College Profile',
+        body: 'Streamlining College Information for Recruiters with In-Depth, Data-Driven Reports.'
       },
       {
-        leadingIcon: 'check',
-        title: 'Easy Data Management',
-        body: 'Keep your college and student data organized and easily accessible, saving time and effort.'
-      }
-    ]
-  },
-  {
-    name: 'recruit',
-    path: '/recruit',
-    title: 'Your End-to-End Automated Platform for Better, Faster Hiring',
-    subtitle:
-      'Revolutionize your hiring process with speed and precision. Our end-to-end automation delivers top talent for your organization effortlessly.',
-    features: [
-      {
-        leadingIcon: 'approval',
-        title: 'Data Future Prediction',
-        body: 'Data-Driven Approach for Harnessing Past Recruitment Insights for Your Next On-Campus Recruitment'
-      },
-      {
-        leadingIcon: 'check',
+        leadingIcon: 'stocks',
         title: 'Custom Job Campaigns',
         body: 'Accelerating Job Campaigns with Custom Templates Eliminating Repetitive Manual Creation.'
       }

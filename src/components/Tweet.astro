@@ -1,0 +1,28 @@
+---
+import Icon from 'astro-icon'
+
+interface Props {
+  tweet: string
+  author: string
+  authorHandle: string
+  authorPosition?: string
+}
+
+const { tweet, author, authorHandle, authorPosition } = Astro.props
+---
+
+<div>
+  <div class='pl-4 border-l-2 border-primary-blue'>
+    {tweet}
+  </div>
+  <div class='pl-4 my-4 flex flex-row gap-2'>
+    <Icon width={20} class='text-primary-blue' name='mdi:twitter' />
+    <span class='text-accent text-sm'
+      >{
+        `${author} @${authorHandle} ${
+          authorPosition ? `| ${authorPosition}` : ''
+        }`
+      }</span
+    >
+  </div>
+</div>

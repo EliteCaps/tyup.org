@@ -1,18 +1,17 @@
 ---
-import Layout from '@layouts/Layout.astro';
-import GradientText from '@components/GradientText.astro';
-import Navbar from '@components/Navbar.astro';
+// Layout
+import Layout from '@layouts/Layout.astro'
 
+// Components
+import Navbar from '@components/Navbar.astro'
+
+// Sections
+import Hero from '@sections/recruit/Hero.astro'
 ---
 
 <Layout title='Tyup Recruit: Revolutionize Placements'>
-  <main class="px-2">
-    <Navbar />
-    <div class="flex flex-col justify-center items-center h-screen">
-      <h1 class='text-4xl font-bold'>
-        Welcome to Tyup Recruit.
-        <GradientText text="Let's Develop!" />
-      </h1>
-    </div>
+  <Navbar />
+  <main>
+    <Hero />
   </main>
 </Layout>

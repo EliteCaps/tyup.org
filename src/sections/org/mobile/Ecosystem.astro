@@ -1,0 +1,56 @@
+---
+import Icon from 'astro-icon'
+import { Image } from 'astro:assets'
+
+// Layout
+import Section from '@layouts/Section.astro'
+
+// Components
+import GradientButton from '@components/GradientButton.astro'
+import Logo from '@components/Logo.astro'
+
+import dashboard from '@assets/dashboard.svg'
+
+// Constants
+import ECOSYSTEM, {
+  type IEcosystemProps,
+  type IFeatures
+} from '@constants/org/Ecosystem'
+---
+
+<div class='lg:hidden block'>
+  {
+    ECOSYSTEM.map((e: IEcosystemProps) => (
+      <Section>
+        <div class='flex flex-col items-center mt-10'>
+          <Logo name={e.name} />
+
+          <div class='mt-4'>
+            <h2 class='text-4xl font-bold text-center'>{e.title}</h2>
+          </div>
+
+          <div class='my-6'>
+            <p class='text-xl text-accent text-center'>{e.subtitle}</p>
+          </div>
+
+          <div class='flex flex-col gap-4'>
+            {e.features.map((f: IFeatures) => (
+              <div class='flex flex-row gap-2'>
+                <h3 class='text-2xl'>{f.title}</h3>
+                <Icon width={30} name={f.leadingIcon} />
+              </div>
+            ))}
+          </div>
+
+          <div class='my-6'>
+            <Image src={dashboard} alt='Tyup Dashboard' />
+          </div>
+
+          <div class='w-60'>
+            <GradientButton text='Explore' />
+          </div>
+        </div>
+      </Section>
+    ))
+  }
+</div>

@@ -4,6 +4,10 @@ import Icon from 'astro-icon'
 
 import GradientButton from './GradientButton.astro'
 import tyup from '@assets/tyup-dark.svg'
+import Section from '@layouts/Section.astro'
+
+import Logo from '@components/Logo.astro'
+import Tag from '@components/Tag.astro'
 
 const pathname = new URL(Astro.request.url).pathname
 const currentPath = pathname.slice(1)
@@ -29,54 +33,57 @@ const routes: Routes[] = [
 ]
 ---
 
-<header class='sticky top-0 z-10 bg-background-primary'>
-  <nav
-    class='flex flex-row h-14 shadow-md border-b border-white/10 justify-between px-2'
-  >
-    <div class='flex items-center lg:w-100 w-auto lg:gap-20 h-full'>
-      <!-- Laptop Brand Logo -->
-      <a href='/' class='lg:block hidden'>
-        <Image width={20} src={tyup} alt='Tyup Logo' />
-      </a>
+<header class='sticky top-0 z-10 bg-primary-black'>
+  <Section>
+    <nav
+      class='flex flex-row h-14 shadow-md border-b border-white/10 justify-between px-2'
+    >
+      <div class='flex items-center lg:w-100 w-auto lg:gap-20 h-full'>
+        <!-- Laptop Brand Logo -->
+        <a href='/' class='lg:block hidden'>
+          <Image width={20} src={tyup} alt='Tyup Logo' />
+        </a>
 
-      <!-- Mobile Brand Logo -->
-      <a href={currentPath} class='flex flex-row gap-1 items-center lg:hidden'>
-        <Image width={20} src={tyup} alt={`Tyup ${currentPath}`} />
-        <h3 class='text-2xl font-bold font-weight-[700]'>{currentPath}</h3>
-        <span class='outline outline-1 px-1 text-green-500 rounded-md text-xs'>
-          Dev
-        </span>
-      </a>
+        <!-- Mobile Brand Logo -->
+        <a
+          href={currentPath}
+          class='flex flex-row gap-1 items-center lg:hidden'
+        >
+          <Logo name={currentPath} />
+          <Tag text='Alpha' />
+        </a>
 
-      <!-- Laptop Routes -->
-      <div class='lg:flex flex-row gap-10 h-full hidden'>
-        {
-          routes.map((route) => {
-            return (
-              <a href={route.path} class='hover:cursor-pointer'>
-                <div
-                  class={`flex items-center justify-center h-full hover:text-accent hover:border-b hover:border-primary-blue ${
-                    currentPath === route.path && 'border-b border-primary-blue'
-                  }`}
-                >
-                  {route.name}
-                </div>
-              </a>
-            )
-          })
-        }
+        <!-- Laptop Routes -->
+        <div class='lg:flex flex-row gap-10 h-full hidden'>
+          {
+            routes.map((route) => {
+              return (
+                <a href={route.path} class='hover:cursor-pointer'>
+                  <div
+                    class={`flex items-center justify-center h-full hover:text-accent hover:border-b hover:border-primary-blue ${
+                      currentPath === route.path &&
+                      'border-b border-primary-blue'
+                    }`}
+                  >
+                    {route.name}
+                  </div>
+                </a>
+              )
+            })
+          }
+        </div>
       </div>
-    </div>
-    <div class='flex items-center'>
-      <!-- Login Button in Laptop -->
-      <div class='lg:block hidden'>
-        <GradientButton text='Log in' />
-      </div>
+      <div class='flex items-center'>
+        <!-- Login Button in Laptop -->
+        <div class='lg:block hidden'>
+          <GradientButton text='Log in' />
+        </div>
 
-      <!-- Menu Button in Mobile -->
-      <div class='lg:hidden block cursor-pointer'>
-        <Icon width={30} name='mdi:menu' />
+        <!-- Menu Button in Mobile -->
+        <div class='lg:hidden block cursor-pointer'>
+          <Icon width={30} name='mdi:menu' />
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </Section>
 </header>

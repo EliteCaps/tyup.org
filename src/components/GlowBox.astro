@@ -1,0 +1,15 @@
+---
+interface Props {
+  size?: string
+  color?: string
+  blur?: number
+}
+
+const { size = 'h-32 w-32', color = 'bg-primary-blue', blur = 75 } = Astro.props
+---
+
+<div
+  class={`${size} ${color} rounded-full mx-auto my-auto`}
+  style={`filter: blur(${blur}px);`}
+>
+</div>

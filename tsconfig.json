@@ -11,7 +11,13 @@
       ],
       "@assets/*": [
         "src/assets/*"
-      ]
+      ],
+      "@sections/*": [
+        "src/sections/*"
+      ],
+      "@constants/*": [
+        "src/constants/*"
+      ],
     }
   }
 }

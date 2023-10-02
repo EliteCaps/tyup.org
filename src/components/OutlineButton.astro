@@ -1,0 +1,16 @@
+---
+interface Props {
+  text: string
+  path: string
+}
+
+const { text, path } = Astro.props
+---
+
+<a href={path}>
+  <div
+    class='bg-transparent hover:bg-primary-blue text-primary-blue hover:text-white border border-primary-blue hover:border-transparent rounded-lg py-2 px-4'
+  >
+    {text}
+  </div>
+</a>

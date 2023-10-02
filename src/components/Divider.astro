@@ -1,7 +1,13 @@
 ---
+interface Props {
+  direction?: 'horizontal' | 'vertical'
+  color?: string
+}
 
+const { direction = 'horizontal', color = 'bg-white' } = Astro.props
 ---
 
-<div class='flex flex-row justify-center'>
-  <div class='w-[92%] border-b border-[#939DB8]/10'></div>
+<div
+  class=`${color}/10 ${direction === 'horizontal' ? 'w-full h-px my-2' : 'w-px h-full mx-2'}`
+>
 </div>

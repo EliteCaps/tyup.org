@@ -16,37 +16,7 @@ import Divider from '@components/Divider.astro'
 import curvedDash from '@assets/curved-dash.svg'
 import splash from '@assets/splash.svg'
 
-interface ICard {
-  href: string
-  leadingIcon: string
-  trailingIcon: string
-  title: string
-  body: string
-}
-
-const cards: ICard[] = [
-  {
-    leadingIcon: 'approval',
-    trailingIcon: 'chevron-left',
-    title: 'Tyup Mate',
-    body: `Transforming students' college experience and forging the way for their future success.`,
-    href: '/mate'
-  },
-  {
-    leadingIcon: 'chart',
-    trailingIcon: 'chevron-left',
-    title: 'Tyup Campus',
-    body: `Unlock the Power of Seamless College-Company Connections, Streamlined Verification, and Unmatched Success.`,
-    href: '/campus'
-  },
-  {
-    leadingIcon: 'chart',
-    trailingIcon: 'chevron-left',
-    title: 'Tyup Recruit',
-    body: `Revolutionize your hiring process with speed and precision. Our end-to-end automation delivers top talent for you.`,
-    href: '/recruit'
-  }
-]
+import cards, { type ICard, MOBILE_SUBTITLE } from '@constants/org/Hero'
 ---
 
 <!-- Hero Section -->
@@ -82,10 +52,7 @@ const cards: ICard[] = [
 
       <!-- Mobile Subtitle -->
       <div class='flex items-center relative mt-8 w-full block p-2'>
-        <p class='text-accent text-xl text-center'>
-          Elevating College Placement Success through Seamless Connections,
-          Precision Hiring, and a Transformative Student Experience.
-        </p>
+        <p class='text-accent text-xl text-center'>{MOBILE_SUBTITLE}</p>
         <div class='absolute inset-0 flex items-center justify-center z-[-1]'>
           <GlowBox />
         </div>
@@ -94,7 +61,7 @@ const cards: ICard[] = [
       <!-- Mobile Routes -->
       <div class='flex justify-between m-8'>
         {
-          cards.map((card) => (
+          cards.map((card: ICard) => (
             <a href={card.href}>
               <div class='flex gap-2'>
                 {card.title}
@@ -108,12 +75,12 @@ const cards: ICard[] = [
       <!-- Explore Button -->
       <div class='flex justify-center'>
         <div class='mt-8 mb-10 w-60'>
-          <GradientButton text='Explore' />
+          <GradientButton text='Explore' path='#' />
         </div>
       </div>
 
       <!-- Divider -->
-      <Divider />
+      <Divider direction='horizontal' />
     </div>
 
     <!-- Animated Arrow -->

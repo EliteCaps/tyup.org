@@ -6,24 +6,26 @@ import { Image } from 'astro:assets'
 import Section from '@layouts/Section.astro'
 
 // Components
-import GradientButton from '@components/GradientButton.astro'
-import Logo from '@components/Logo.astro'
+import Tweet from '@components/Tweet.astro'
 
 import dashboard from '@assets/dashboard.svg'
 
 // Constants
-import ECOSYSTEM, {
-  type IEcosystemProps,
-  type IFeatures
-} from '@constants/org/Ecosystem'
+import FEATURES, {
+  type IFeatureProps,
+  type IFeature
+} from '@constants/recruit/Features'
 ---
 
 <div class='lg:hidden block'>
   {
-    ECOSYSTEM.map((e: IEcosystemProps) => (
+    FEATURES.map((e: IFeatureProps) => (
       <Section>
         <div class='flex flex-col items-center mt-10'>
-          <Logo name={e.name} />
+          <div class='flex flex-row gap-2 text-primary-blue'>
+            <Icon width={15} name='check-circle-dashed' />
+            <span>Automation</span>
+          </div>
 
           <div class='mt-4'>
             <h2 class='text-4xl font-bold text-center'>{e.title}</h2>
@@ -34,7 +36,7 @@ import ECOSYSTEM, {
           </div>
 
           <div class='flex flex-col gap-4'>
-            {e.features.map((f: IFeatures) => (
+            {e.features.map((f: IFeature) => (
               <div class='flex flex-row gap-2'>
                 <h3 class='text-2xl'>{f.title}</h3>
                 <Icon width={30} name={f.leadingIcon} />
@@ -46,8 +48,12 @@ import ECOSYSTEM, {
             <Image src={dashboard} alt='Tyup Dashboard' />
           </div>
 
-          <div class='w-60'>
-            <GradientButton text='Explore' path={e.path} />
+          <div class='w-full'>
+            <Tweet
+              tweet={`Tyup is one of the best products I've ever used. Went from 0-100 on logging in 10 minutes. Incredible`}
+              author='Khyati'
+              authorHandle='hrkhyati'
+            />
           </div>
         </div>
       </Section>

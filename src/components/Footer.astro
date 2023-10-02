@@ -1,0 +1,79 @@
+---
+import Icon from 'astro-icon'
+
+// Layouts
+import Section from '@layouts/Section.astro'
+
+// Components
+import Logo from '@components/Logo.astro'
+
+import FOOTER, {
+  COMPANY,
+  type ICompany,
+  type IFooter,
+  type ISocialLinks
+} from '@constants/Footer'
+
+const pathname = new URL(Astro.request.url).pathname
+const currentPath = pathname.slice(1)
+
+const data: IFooter =
+  FOOTER.find((item) => item.name === currentPath) ?? FOOTER[0]
+---
+
+<Section>
+  <footer class='flex flex-col mt-10 text-accent'>
+    <Logo className='mb-4' name={data.name} width={30} textSize='text-4xl' />
+    <div class='flex flex-col lg:flex-row lg:justify-between gap-6'>
+      <div class='flex flex-col lg:w-2/5 w-full'>
+        {
+          data.path === '/' && (
+            <div class='flex flex-row gap-2 mb-3'>
+              {['Mate', 'Campus', 'Recruit'].map((e: string, index: number) => (
+                <div class='flex flex-row gap-2'>
+                  <div>Tyup{e}</div>
+                  {index !== 2 && <div>x</div>}
+                </div>
+              ))}
+            </div>
+          )
+        }
+
+        <p>{data.description}</p>
+      </div>
+      <div>
+        <div class='flex flex-row gap-4 mb-6 lg:justify-end'>
+          <div>{COMPANY.email}</div>
+          <div>{COMPANY.phone}</div>
+        </div>
+
+        <div class='flex flex-row gap-4 mb-10 lg:justify-end'>
+          <a href={COMPANY.socialLinks?.instagram}>
+            <Icon class='w-6' name='mdi:instagram' />
+          </a>
+          <a href={COMPANY.socialLinks?.linkedin}>
+            <Icon class='w-6' name='mdi:linkedin' />
+          </a>
+          <a href={COMPANY.socialLinks?.twitter}>
+            <Icon class='w-6' name='mdi:twitter' />
+          </a>
+          <a href={COMPANY.socialLinks?.github}>
+            <Icon class='w-6' name='mdi:github' />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class='flex flex-row justify-between mb-8'>
+      <div class='flex flex-row gap-4'>
+        <a href={COMPANY.tncLink}>
+          <div>{COMPANY.tncTitle}</div>
+        </a>
+        <a href={COMPANY.privacyLink}>
+          <div>{COMPANY.privacyTitle}</div>
+        </a>
+      </div>
+      <div>@2023 Tyup Pvt. Ltd.</div>
+    </div>
+  </footer>
+</Section>

@@ -1,0 +1,72 @@
+---
+import { Image } from 'astro:assets'
+
+import Section from '@layouts/Section.astro'
+
+// Assets
+import c2c from '@assets/c2c.svg'
+
+import AnimatedArrow from '@components/AnimatedArrow.astro'
+import GlowBox from '@components/GlowBox.astro'
+import GradientButton from '@components/GradientButton.astro'
+import GradientText from '@components/GradientText.astro'
+---
+
+<Section>
+  <div class='relative lg:grid lg:grid-cols-3 h-[80vh]'>
+    <div class='flex flex-col lg:col-span-2 justify-center h-full'>
+      <!-- Hero Heading -->
+      <h1
+        class='relative flex flex-col lg:text-6xl text-3xl font-bold items-center lg:items-start'
+      >
+        <div class='flex flex-row gap-2'>
+          <GradientText text={'Automate'} />
+          <span>Connections,</span>
+        </div>
+        <div class='flex flex-row gap-2'>
+          <GradientText text={'Streamline'} />
+          <span class='flex flex-col'>
+            <span>C2C</span>
+            <Image
+              class='absolute lg:bottom-2 lg:left-80 bottom-1 lg:w-[226px] w-40'
+              src={c2c}
+              alt={'Curved Dash'}
+            />
+          </span>
+        </div>
+        <div>Journeys.</div>
+      </h1>
+
+      <!-- Laptop Subtitle -->
+      <div class='relative my-8 lg:w-2/3 w-full items-center lg:items-left'>
+        <p class='text-md text-accent lg:text-left text-center p-4'>
+          Experience the future of campus recruitment. We simplify college
+          connections, automate recruitment, and ensure seamless
+          campus-to-career transitions. Save time, optimize resources, and
+          secure top talent. Transform your campus recruitment journey today.
+        </p>
+        <div
+          class='absolute inset-0 flex items-center justify-center z-[-1] lg:hidden'
+        >
+          <GlowBox />
+        </div>
+      </div>
+
+      <!-- Explore Button -->
+      <div class='flex lg:justify-start justify-center'>
+        <div class='my-4 w-60'>
+          <GradientButton text='Explore' path='#' />
+        </div>
+      </div>
+    </div>
+    <!-- Right Side -->
+    <div class='relative gap-6 flex flex-col justify-center'>
+      <div class='absolute inset-0 flex items-center justify-center z-[-1]'>
+        <GlowBox size='h-[200px] w-[200px]' blur={182} />
+      </div>
+    </div>
+    <div class='absolute bottom-4 left-1/2 right-1/2'>
+      <AnimatedArrow />
+    </div>
+  </div>
+</Section>

@@ -1,9 +1,16 @@
 ---
-const { text } = Astro.props
+interface Props {
+  text: string
+  path: string
+}
+
+const { text, path } = Astro.props
 ---
 
-<div
-  class='bg-gradient-to-r from-primary-blue to-secondary-blue rounded-md px-4 py-1 hover:cursor-pointer text-center'
->
-  {text}
-</div>
+<a href={path}>
+  <div
+    class='bg-gradient-to-r from-primary-blue to-secondary-blue rounded-md px-4 py-1 hover:cursor-pointer text-center'
+  >
+    {text}
+  </div>
+</a>

@@ -1,18 +1,31 @@
 ---
-import Layout from '@layouts/Layout.astro';
-import GradientText from '@components/GradientText.astro';
-import Navbar from '@components/Navbar.astro';
+// Layout
+import Layout from '@layouts/Layout.astro'
 
+// Components
+import Navbar from '@components/Navbar.astro'
+
+// Sections
+import Hero from '@sections/campus/Hero.astro'
+import Features from '@sections/campus/Features.astro'
+import Benefits from '@components/Benefits.astro'
+import CallToAction from '@components/CallToAction.astro'
+// import CTA from '@sections/recruit/CTA.astro'
 ---
 
 <Layout title='Tyup Campus: Revolutionize Placements'>
-  <main class="px-2">
-    <Navbar />
-    <div class="flex flex-col justify-center items-center h-screen">
-      <h1 class='text-4xl font-bold'>
-        Welcome to Tyup Campus.
-        <GradientText text="Let's Develop" />
-      </h1>
-    </div>
+  <Navbar />
+  <main>
+    <Hero />
+    <Features />
+    <!-- <CTA /> -->
+    <Benefits/>
+    <CallToAction
+    name='campus'
+    title='Your End-to-End Automated Platform for Better, Faster Hiring'
+    description='Revolutionize your hiring process with speed and precision. Our end-to-end automation delivers top talent for your organization effortlessly.'
+    buttonText='Contact Us'
+    path='#'
+  />
   </main>
 </Layout>

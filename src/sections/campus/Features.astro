@@ -1,0 +1,56 @@
+---
+import { Icon } from 'astro-icon'
+import { Image } from 'astro:assets'
+
+// Layout
+import Section from '@layouts/Section.astro'
+
+// Components
+
+
+// Assets
+import dashboard from '@assets/dashboard.svg'
+
+
+// Constants
+import FEATURES, {
+  type IFeatureProps
+} from '@constants/campus/Features'
+---
+
+<div class='hidden lg:block relative'>
+  {
+    FEATURES.map((e: IFeatureProps) => (
+
+        
+      <div class='relative'>
+        <Section>
+          <div class='flex flex-col w-[580px] mt-16  z-2'>
+            <div class='flex flex-row gap-2 text-primary-blue'>
+              <Icon width={15} name='check-circle-dashed' />
+              <span>{e.span}</span>
+            </div>
+
+            <div class='my-6'>
+              <h2 class='text-4xl'>{e.title}</h2>
+            </div>
+
+            <div class='mb-14'>
+              <p class='text-xl text-accent'>{e.subtitle}</p>
+            </div>
+
+       
+
+        
+        </Section>
+      
+        <p>.</p>
+      </div>
+    ))
+  }
+  <Image
+          src={dashboard}
+          alt='Dashboard'
+          class='absolute top-0 right-0 w-3/5 z-[-1]'
+        />
+</div>

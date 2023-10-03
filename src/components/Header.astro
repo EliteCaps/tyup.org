@@ -39,7 +39,7 @@ const routes: Routes[] = [
       <div class='flex items-center lg:w-100 w-auto lg:gap-20 h-full'>
         <!-- Laptop Brand Logo -->
         <a href='/' class='lg:block hidden'>
-          <Logo name={currentPath} />
+          <Logo logoType='light' name={currentPath} />
         </a>
 
         <!-- Mobile Brand Logo -->
@@ -47,7 +47,7 @@ const routes: Routes[] = [
           href={currentPath}
           class='flex flex-row gap-1 items-center lg:hidden'
         >
-          <Logo name={currentPath} />
+          <Logo logoType='light' name={currentPath} />
           <Tag text='Alpha' />
         </a>
 

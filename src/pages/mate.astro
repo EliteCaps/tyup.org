@@ -7,11 +7,12 @@ import Hero from '@sections/student/Hero.astro'
 // import Companies from '@components/Companies.astro'
 import Benefits from '@components/Benefits.astro'
 import Companies from '@components/Companies.astro'
+import CallToAction from '@components/CallToAction.astro'
 ---
 
 <Layout title='Tyup Mate: Revolutionize Placements'>
-  <main class='px-48'>
-    <Navbar />
+  <Navbar />
+  <main class='px-36'>
     <Hero />
     <div class='flex flex-col justify-center items-center h-screen'>
       <div
@@ -26,4 +27,11 @@ import Companies from '@components/Companies.astro'
   </main>
   <PlacementSession />
   <Benefits />
+  <CallToAction
+  name='students'
+  title='Your End-to-End Automated Platform for Better, Faster Hiring'
+  description='Revolutionize your hiring process with speed and precision. Our end-to-end automation delivers top talent for your organization effortlessly.'
+  buttonText='Contact Us'
+  path='#'
+/>
 </Layout>

@@ -13,7 +13,7 @@ interface Props {
   className?: string
   textSize?: string
   textColor?: string
-  logoType: string
+  logoType?: string
 }
 
 const { name, className, logoType } = Astro.props
@@ -49,9 +49,11 @@ switch (name) {
 ---
 
 <div class=`${className} flex items-center`>
-  {logoType=='dark'?
-    <Image src={imgL} alt={`Tyup ${name}`} />:
-    <Image src={img} alt={`Tyup ${name}`} />
+  {
+    logoType == 'dark' ? (
+      <Image src={imgL} alt={`Tyup ${name}`} />
+    ) : (
+      <Image src={img} alt={`Tyup ${name}`} />
+    )
   }
-  
 </div>

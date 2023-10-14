@@ -1,0 +1,46 @@
+version: "3"
+services:
+  nginx:
+    container_name: dockernx
+    depends_on:
+      - astro 
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/default.conf:ro
+    networks:
+      - reverse_proxy
+
+  astro:
+    container_name: astro
+    build:
+      dockerfile: Dockerfile
+      context: ./astro
+    depends_on:
+      - db
+    networks:
+      - api_db
+      - reverse_proxy
+
+  db:
+    image: biarms/mysql:5.7
+    container_name: 'tyup_mysql'
+    volumes:
+      - data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: 'tyup_content_db'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+    networks:
+      - api_db
+
+volumes:
+  data:
+
+networks:
+  api_db:
+  reverse_proxy:

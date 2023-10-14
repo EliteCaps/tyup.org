@@ -1,0 +1,10 @@
+version: "3"
+services:
+  nginx:
+    ports:
+      - 80:80
+
+  astro:
+    restart: always
+    environment:
+      - NODE_ENV=production

@@ -1,0 +1,13 @@
+version: "3"
+services:
+  nginx:
+    ports:
+      - 5002:80
+
+  astro:
+    volumes:
+      - ./src:/usr/src/
+      - /usr/src/node_modules
+    environment:
+      - NODE_ENV=development
+    command: npm run dev

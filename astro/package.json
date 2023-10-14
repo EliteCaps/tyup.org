@@ -4,9 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev --port 5002",
-    "start": "astro dev --port 5002",
+    "start": "astro dev --port 5002 --host 0.0.0.0",
     "build": "astro check && tsc --noEmit && astro build",
-    "prestart": "npm install && astro check && tsc --noEmit && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" && eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\""

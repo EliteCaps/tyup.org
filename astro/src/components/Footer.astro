@@ -7,12 +7,7 @@ import Section from '@layouts/Section.astro'
 // Components
 import Logo from '@components/Logo.astro'
 
-import FOOTER, {
-  COMPANY,
-  type ICompany,
-  type IFooter,
-  type ISocialLinks
-} from '@constants/Footer'
+import FOOTER, { COMPANY, type IFooter } from '@constants/Footer'
 
 const pathname = new URL(Astro.request.url).pathname
 const currentPath = pathname.slice(1)

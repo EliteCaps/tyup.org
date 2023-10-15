@@ -3,8 +3,8 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev --port 5002",
-    "start": "astro dev --port 5002 --host 0.0.0.0",
+    "dev": "astro dev",
+    "start": "npm run build && node ./dist/server/entry.mjs",
     "build": "astro check && tsc --noEmit && astro build",
     "preview": "astro preview",
     "astro": "astro",
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.2.0",
+    "@astrojs/node": "^6.0.3",
     "@astrojs/tailwind": "^5.0.0",
     "astro": "^3.2.0",
     "astro-icon": "^0.8.1",

@@ -50,12 +50,10 @@ services:
     networks:
       - reverse_proxy
     volumes:
-      - wordpress_data:/var/www/html
       - ./wordpress:/var/www/html
 
 volumes:
   data:
-  wordpress_data:
 
 networks:
   reverse_proxy:

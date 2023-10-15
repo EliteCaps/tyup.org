@@ -19,8 +19,6 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./astro
-    depends_on:
-      - nginx
     networks:
       - reverse_proxy
 

@@ -3,7 +3,8 @@ services:
   nginx:
     container_name: dockernx
     depends_on:
-      - astro 
+      - astro
+      - wordpress
     restart: always
     build:
       dockerfile: Dockerfile
@@ -19,11 +20,10 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./astro
-    links:
+    depends_on:
       - wordpress
     networks:
       - reverse_proxy
-      - wordpress_n
 
   db:
     image: biarms/mysql:5.7
@@ -31,37 +31,31 @@ services:
     volumes:
       - data:/var/lib/mysql
     environment:
-      MYSQL_DATABASE: 'tyup_content_db'
-      MYSQL_PASSWORD: 'password'
-      MYSQL_ROOT_PASSWORD: 'password'
-      MYSQL_USER: 'root'
-    ports:
-      - '3306:3306'
+      MYSQL_DATABASE: tyup_content_db
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: root
     networks:
-      - wordpress_n
+      - reverse_proxy
 
   wordpress:
     image: wordpress:latest
     depends_on:
       - db 
     environment:
-      WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USERNAME: root
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: root
       WORDPRESS_DB_PASSWORD: password
       WORDPRESS_DB_NAME: tyup_content_db
-    links:
-      - db
-    ports:
-      - "2025:2025"
     networks:
       - reverse_proxy
-      - wordpress_n
     volumes:
-      ["./wordpress:/var/www/html"]
+      - wordpress_data:/var/www/html
+      - ./wordpress:/var/www/html
 
 volumes:
   data:
+  wordpress_data:
 
 networks:
   reverse_proxy:
-  wordpress_n:

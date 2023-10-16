@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from 'astro:transitions'
+
 import Header from '@components/Header.astro'
 import Footer from '@components/Footer.astro'
 
@@ -47,27 +49,28 @@ const {
       href='https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap'
       rel='stylesheet'
     />
+
+    <ViewTransitions />
   </head>
   <body>
     <Header />
     <slot />
     <Footer />
+    <style is:global>
+      html {
+        color: white;
+        background: #0c0c14;
+      }
+
+      a {
+        cursor: pointer;
+      }
+
+      h1,
+      h2 {
+        font-weight: 700;
+        /* color: #939db81a; */
+      }
+    </style>
   </body>
 </html>
-
-<style is:global>
-  html {
-    color: white;
-    background: #0c0c14;
-  }
-
-  a {
-    cursor: pointer;
-  }
-
-  h1,
-  h2 {
-    font-weight: 700;
-    /* color: #939db81a; */
-  }
-</style>

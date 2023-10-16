@@ -1,17 +1,18 @@
 ---
-import GradientButton from '../../components/GradientButton.astro'
-import GradientText from '../../components/GradientText.astro'
 import Section from '@layouts/Section.astro'
+
+import GradientButton from '@components/GradientButton.astro'
+import GradientText from '@components/GradientText.astro'
+import Input from '@components/Input.astro'
 ---
 
 <Section>
   <main
     class='font-normal text-center flex flex-col items-center gap-10 h-[70vh] justify-center'
   >
-    <!-- <h1 class="text-7xl"></h1> -->
-    <span class='text-7xl font-bold'>
+    <h1 class='text-7xl font-bold'>
       <GradientText class='text-7xl' text='Maximize Shortlisting Success' />
-    </span>
+    </h1>
 
     <p class='text-lg text-[#939DB8]'>
       Tyup empowers students to excel in campus placements. With its
@@ -19,8 +20,19 @@ import Section from '@layouts/Section.astro'
       shortlisting success becomes achievable..
     </p>
 
-    <div class='text-lg w-[20%] p-5'>
-      <GradientButton text='Join Waitlist' path='/' />
-    </div>
+    <form
+      action='https://formspree.io/f/xrgwrrga'
+      method='POST'
+      class='flex flex-col gap-4 w-96'
+    >
+      <!-- College Name Input -->
+      <Input type="text" name="College" placeholder="College Name" required={true} />
+
+      <!-- Email Input -->
+      <Input type="email" name="Email" placeholder="Email" required={true} />
+
+      <!-- Submit Button -->
+      <GradientButton buttonType='submit' className='text-lg p-4' text='Join Waitlist' />
+    </form>
   </main>
 </Section>

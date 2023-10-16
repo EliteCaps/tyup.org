@@ -1,16 +1,20 @@
 ---
 interface Props {
   text: string
-  path: string
+  path?: string
+  className?: string
+  buttonType?: string
 }
 
-const { text, path } = Astro.props
+const { text, path, className, buttonType = 'button' } = Astro.props
+
+function handleOnClick() {
+  if (path) {
+    Astro.router.push(path)
+  }
+}
 ---
 
-<a href={path}>
-  <div
-    class='bg-gradient-to-r from-primary-blue to-secondary-blue rounded-md px-4 py-1 hover:cursor-pointer text-center'
-  >
-    {text}
-  </div>
-</a>
+<button onClick={handleOnClick} type={buttonType} class={`${className} bg-gradient-to-r from-primary-blue to-secondary-blue rounded-md px-4 py-1 hover:cursor-pointer text-center`}>
+{text}
+</button>

@@ -1,0 +1,16 @@
+---
+interface Props {
+    name: string;
+    label: string;
+    type: string;
+    placeholder?: string;
+    required?: boolean;
+    disabled?: boolean;
+    value?: string;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const { name, label, type, placeholder, required, disabled, value, onChange } = Astro.props;
+---
+
+<input type={type} name={name} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-blue-500 focus:border-primary-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-blue-500 dark:focus:border-primary-blue-500" placeholder={placeholder} required={required} />

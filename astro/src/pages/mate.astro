@@ -1,12 +1,15 @@
 ---
 import Layout from '@layouts/Layout.astro'
-import Navbar from '@components/Navbar.astro'
+
 import PlacementSession from '@sections/student/PlacementSession.astro'
 import Hero from '@sections/student/Hero.astro'
-// import Companies from '@components/Companies.astro'
+
+import Navbar from '@components/Navbar.astro'
 import Benefits from '@components/Benefits.astro'
 import Companies from '@components/Companies.astro'
 import CallToAction from '@components/CallToAction.astro'
+
+export const prerender = true
 ---
 
 <Layout title='Tyup Mate: Revolutionize Placements'>
@@ -18,7 +21,7 @@ import CallToAction from '@components/CallToAction.astro'
         class='flex flex-col items-center justify-center my-20 border-t-[1px] border-b-[1px] border-t-[#939db81a] border-b-[#939db81a] bg-[#0C0C14] mb-[450px]'
       >
         <p class='text-base py-6 pt-12 font-bold text-[#939DB8]'>
-          Relied on by the India’s best companies
+          Relied on by the India's best companies
         </p>
         <Companies />
       </div>

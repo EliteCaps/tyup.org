@@ -8,7 +8,7 @@ import Logo from '@components/Logo.astro'
 import Tag from '@components/Tag.astro'
 
 const pathname = new URL(Astro.request.url).pathname
-const currentPath = pathname.slice(1)
+const currentPath = pathname.slice(1, pathname.length - 1)
 
 interface Routes {
   name: string
@@ -39,12 +39,12 @@ const routes: Routes[] = [
       <div class='flex items-center lg:w-100 w-auto lg:gap-20 h-full'>
         <!-- Laptop Brand Logo -->
         <a href='/' class='lg:block hidden'>
-          <Logo logoType='light' name={currentPath} />
+          <Logo logoType='light' name='' />
         </a>
 
         <!-- Mobile Brand Logo -->
         <a
-          href={currentPath}
+          href={`/${currentPath}`}
           class='flex flex-row gap-1 items-center lg:hidden'
         >
           <Logo logoType='light' name={currentPath} />
@@ -56,7 +56,7 @@ const routes: Routes[] = [
           {
             routes.map((route) => {
               return (
-                <a href={route.path} class='hover:cursor-pointer'>
+                <a href={`/${route.path}`} class='hover:cursor-pointer'>
                   <div
                     class={`flex items-center justify-center h-full hover:text-accent hover:border-b hover:border-primary-blue ${
                       currentPath === route.path &&

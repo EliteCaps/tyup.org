@@ -11,6 +11,8 @@ import Features from '@sections/campus/Features.astro'
 import Benefits from '@components/Benefits.astro'
 import CallToAction from '@components/CallToAction.astro'
 
+const contactPath = new URL(Astro.request.url).pathname + '/contact'
+
 export const prerender = true
 ---
 
@@ -19,14 +21,13 @@ export const prerender = true
   <main>
     <Hero />
     <Features />
-    <!-- <CTA /> -->
     <Benefits />
     <CallToAction
       name='campus'
       title='Your End-to-End Solution for Campus Success '
       description='Unlock the Power of Seamless College-Company Connections, Streamlined Verification, and Unmatched Success'
       buttonText='Contact Us'
-      path='#'
+      path={contactPath}
     />
   </main>
 </Layout>

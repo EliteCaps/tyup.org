@@ -3,18 +3,17 @@ interface Props {
   text: string
   path?: string
   className?: string
-  buttonType?: string
+  buttonType?: astroHTML.JSX.ButtonHTMLAttributes['type']
 }
 
-const { text, path, className, buttonType = 'button' } = Astro.props
-
-function handleOnClick() {
-  if (path) {
-    Astro.router.push(path)
-  }
-}
+const { text, path, className = '', buttonType = 'button' } = Astro.props
 ---
 
-<button onClick={handleOnClick} type={buttonType} class={`${className} bg-gradient-to-r from-primary-blue to-secondary-blue rounded-md px-4 py-1 hover:cursor-pointer text-center`}>
-{text}
-</button>
+<a href={path}>
+  <button
+    type={buttonType}
+    class={`${className} bg-gradient-to-r from-primary-blue to-secondary-blue rounded-md px-4 py-1 hover:cursor-pointer text-center`}
+  >
+    {text}
+  </button>
+</a>

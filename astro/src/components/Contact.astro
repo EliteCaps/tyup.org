@@ -1,0 +1,110 @@
+---
+import { Image } from 'astro:assets'
+
+import Section from '@layouts/Section.astro'
+import Logo from './Logo.astro'
+import Input from './Input.astro'
+import GradientButton from './GradientButton.astro'
+
+import dashboard from '@assets/dashboard.svg'
+
+interface Props {
+  entity: string
+}
+
+const { entity } = Astro.props
+
+let type = 'college'
+let formId = 'xeqbvveq'
+if (entity === 'recruit') {
+  type = 'company'
+  formId = 'moqoyyjv'
+}
+---
+
+<Section>
+  <div class='flex flex-row gap-16 mt-8 w-full'>
+    <div class='flex flex-col gap-2 w-full'>
+      <Logo name={entity} className='w-24' />
+      <h1 class='text-4xl my-4'>
+        Share your contact details to schedule a call!
+      </h1>
+
+      <form
+        class='flex flex-col gap-4'
+        action={`https://formspree.io/f/${formId}`}
+        method='POST'
+      >
+        <label for='name'
+          >Name
+          <span class='text-red-500'>*</span>
+          <Input
+            type='text'
+            name='name'
+            placeholder='Enter your name'
+            required
+          />
+        </label>
+
+        <label for='email'
+          >Business Email
+          <span class='text-red-500'>*</span>
+          <Input
+            type='email'
+            name='email'
+            placeholder='Enter your business email'
+            required
+          />
+        </label>
+
+        <label for='phone'
+          >Phone
+          <span class='text-red-500'>*</span>
+          <Input type='tel' name='phone' placeholder='+91' required />
+        </label>
+
+        <label for={type}
+          >Your {type} Name
+          <span class='text-red-500'>*</span>
+          <Input
+            type='text'
+            name={type}
+            placeholder={`${type} Name`}
+            required
+          />
+        </label>
+
+        <label for='position'
+          >Your Position
+          <span class='text-red-500'>*</span>
+          <Input
+            type='text'
+            name='position'
+            placeholder={`Eg. ${
+              entity === 'recruit' ? 'HR, CEO' : 'TnP Dean, Placement Officer'
+            } `}
+            required
+          />
+        </label>
+
+        <GradientButton
+          className='my-8 w-full'
+          buttonType='submit'
+          text='Send'
+        />
+      </form>
+    </div>
+
+    <div class='flex flex-col gap-4 w-full'>
+      <p class='w-80'>
+        Tyup is the best ecosystem for company, college and students for a
+        streamlined OnCampus placement.
+      </p>
+
+      <p class='text-accent text-xs'>
+        - Divyanshu Shekhar | Co-Founder & CEO @Tyup
+      </p>
+      <Image src={dashboard} class='w-full' alt='Dashboard' />
+    </div>
+  </div>
+</Section>

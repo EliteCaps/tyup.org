@@ -45,9 +45,8 @@ import cards, { DESKTOP_SUBTITLE, TWEET, type ICard } from '@constants/org/Hero'
           <span>For</span>
         </div>
         <div class='flex flex-row gap-2 h-[70px]'>
-          <span>Every</span>
           <div class='relative flex flex-row pr-4'>
-            <GradientText text={'Campus Placement'} />
+            <GradientText text={'Hiring'} />
             <Image
               width={20}
               class='absolute right-0 top-0'
@@ -55,8 +54,27 @@ import cards, { DESKTOP_SUBTITLE, TWEET, type ICard } from '@constants/org/Hero'
               alt='Splash'
             />
           </div>
+          <span>and</span>
+          <div class='relative flex flex-row pr-4'>
+            <GradientText text={'Placement'} />
+            <Image
+              width={20}
+              class='absolute right-0 top-0'
+              src={splash}
+              alt='Splash'
+            />
+          </div>
+          <span>For</span>
         </div>
-        <div>Requirement</div>
+        <div class='flex flex-row gap-2 h-[70px]'>
+          <div class='relative flex flex-row pr-4'>
+            <GradientText text={'Colleges'} />
+          </div>
+          <span>and</span>
+          <div class='relative flex flex-row pr-4'>
+            <GradientText text={'Companies'} />
+          </div>
+        </div>
       </div>
 
       <!-- Laptop Subtitle -->

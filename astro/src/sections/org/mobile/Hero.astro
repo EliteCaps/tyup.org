@@ -30,16 +30,13 @@ import cards, { type ICard, MOBILE_SUBTITLE } from '@constants/org/Hero'
           <span>A</span>
           <span>Complete</span>
         </div>
-        <div class='flex flex-row gap-2 h-14'>
-          <span class='flex flex-col'>
-            <GradientText text={'Solution'} />
-            <Image class='w-[180px]' src={curvedDash} alt={'Curved Dash'} />
-          </span>
-          <span>For</span>
-          <span>Every</span>
-        </div>
+        <span class='flex flex-col'>
+          <GradientText text={'Solution'} />
+          <Image class='w-[180px]' src={curvedDash} alt={'Curved Dash'} />
+        </span>
+        <span>for</span>
         <div class='relative pr-3 h-14'>
-          <GradientText text={'Campus Placement'} />
+          <GradientText text={'Hiring'} />
           <Image
             width={15}
             class='absolute right-0 top-0'
@@ -47,45 +44,62 @@ import cards, { type ICard, MOBILE_SUBTITLE } from '@constants/org/Hero'
             alt='Splash'
           />
         </div>
-        <span>Requirement</span>
-      </div>
-
-      <!-- Mobile Subtitle -->
-      <div class='flex items-center relative mt-8 w-full p-2'>
-        <p class='text-accent text-lg text-center'>{MOBILE_SUBTITLE}</p>
-        <div class='absolute inset-0 flex items-center justify-center z-[-1]'>
-          <GlowBox />
+        <span>and</span>
+        <div class='relative pr-3 h-14'>
+          <GradientText text={'Placement'} />
+          <Image
+            width={15}
+            class='absolute right-0 top-0'
+            src={splash}
+            alt='Splash'
+          />
+        </div>
+        <span>for</span>
+        <div class='relative pr-3 h-14'>
+          <GradientText text={'Colleges'} />
+        </div>
+        <span>and</span>
+        <div class='relative pr-3 h-14'>
+          <GradientText text={'Companies'} />
         </div>
       </div>
-
-      <!-- Mobile Routes -->
-      <div class='flex justify-between m-8'>
-        {
-          cards.map((card: ICard) => (
-            <a href={card.href}>
-              <div class='flex gap-2'>
-                {card.title}
-                <Icon width={20} name='chevron-left' />
-              </div>
-            </a>
-          ))
-        }
-      </div>
-
-      <!-- Explore Button -->
-      <div class='flex justify-center'>
-        <div class='mt-8 mb-10'>
-          <GradientButton text='Join Waitlist' path='/recruit/contact' />
-        </div>
-      </div>
-
-      <!-- Divider -->
-      <Divider direction='horizontal' />
     </div>
 
-    <!-- Animated Arrow -->
-    <div class='absolute bottom-0 left-1/2 right-1/2'>
-      <AnimatedArrow />
+    <!-- Mobile Subtitle -->
+    <div class='flex items-center relative mt-8 w-full p-2'>
+      <p class='text-accent text-lg text-center'>{MOBILE_SUBTITLE}</p>
+      <div class='absolute inset-0 flex items-center justify-center z-[-1]'>
+        <GlowBox />
+      </div>
     </div>
+
+    <!-- Mobile Routes -->
+    <div class='flex justify-between m-8'>
+      {
+        cards.map((card: ICard) => (
+          <a href={card.href}>
+            <div class='flex gap-2'>
+              {card.title}
+              <Icon width={20} name='chevron-left' />
+            </div>
+          </a>
+        ))
+      }
+    </div>
+
+    <!-- Explore Button -->
+    <div class='flex justify-center'>
+      <div class='mt-8 mb-10'>
+        <GradientButton text='Join Waitlist' path='/recruit/contact' />
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <Divider direction='horizontal' />
+  </div>
+
+  <!-- Animated Arrow -->
+  <div class='absolute bottom-0 left-1/2 right-1/2'>
+    <AnimatedArrow />
   </div>
 </Section>

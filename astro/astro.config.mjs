@@ -6,7 +6,7 @@ const isProd = import.meta.env.PROD
 
 // https://astro.build/config
 export default defineConfig({
-  output: isProd ? 'hybrid' : 'static',
+  output: isProd ? 'static' : 'static',
   server: isProd
     ? {
         port: 5002,

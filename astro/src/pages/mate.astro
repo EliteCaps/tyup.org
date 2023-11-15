@@ -8,15 +8,15 @@ import Navbar from '@components/Navbar.astro'
 import Benefits from '@components/Benefits.astro'
 import Companies from '@components/Companies.astro'
 import CallToAction from '@components/CallToAction.astro'
+import Section from '@layouts/Section.astro'
 
 export const prerender = true
 ---
 
 <Layout title='Tyup Mate: Revolutionize Placements'>
   <Navbar />
-  <main class='px-36'>
-    <Hero />
-    <div class='flex flex-col justify-center items-center h-screen'>
+  <Hero />
+    <!-- <div class='flex flex-col justify-center items-center h-screen'>
       <div
         class='flex flex-col items-center justify-center my-20 border-t-[1px] border-b-[1px] border-t-[#939db81a] border-b-[#939db81a] bg-[#0C0C14] mb-[450px]'
       >
@@ -25,10 +25,9 @@ export const prerender = true
         </p>
         <Companies />
       </div>
-    </div>
-  </main>
+    </div> -->
   <PlacementSession />
-  <Benefits />
+  <!-- <Benefits /> -->
   <CallToAction
     name='students'
     title='Crafting Your End-to-End College Experience for Success'

@@ -14,14 +14,13 @@ import FEATURES, {
 } from '@constants/campus/Features'
 ---
 
-<div class='hidden lg:block relative'>
+<div class='lg:block relative'>
   {
     FEATURES.map((e: IFeatureProps) => (
-
         
       <div class='relative'>
         <Section>
-          <div class='flex flex-col w-[580px] mt-16  z-2'>
+          <div class='flex flex-col lg:w-[580px] mt-16 z-2'>
             <div class='flex flex-row gap-2 text-primary-blue'>
               <Icon width={15} name='check-circle-dashed' />
               <span>{e.span}</span>
@@ -34,10 +33,6 @@ import FEATURES, {
             <div class='mb-14'>
               <p class='text-xl text-accent'>{e.subtitle}</p>
             </div>
-
-       
-
-        
         </Section>
       
        <p class="text-black">.</p>

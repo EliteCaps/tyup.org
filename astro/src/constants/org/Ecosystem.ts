@@ -17,7 +17,7 @@ const ECOSYSTEM: IEcosystemProps[] = [
   {
     name: 'mate',
     path: '/mate',
-    title: 'Crafting Your End-to-End College Experience for Success',
+    title: `Crafting Student's End-to-End College Experience for Success`,
     subtitle: `At Tyup Mate, we're not just revolutionizing placements, we're transforming your entire college experience. Join us, and together, we'll pave the way to your future success.`,
     features: [
       {
@@ -35,14 +35,14 @@ const ECOSYSTEM: IEcosystemProps[] = [
   {
     name: 'campus',
     path: '/campus',
-    title: 'Your End-to-End Solution for Campus Success',
+    title: `College's Placement Partner`,
     subtitle:
       'Unlock the Power of Seamless College-Company Connections, Streamlined Verification, and Unmatched Success. Tyup offers a unique blend of features and benefits for colleges. Explore Now!!',
     features: [
       {
         leadingIcon: 'approval',
-        title: 'Call Companies in 1 Click ',
-        body: 'With a single click, college can engage with HR and companies, showcase their strengths & offerings.'
+        title: 'Invite Companies in 1-Click ',
+        body: `With a single click, college can engage with HR and companies, showcase your campus's strengths & offerings.`
       },
       {
         leadingIcon: 'check',
@@ -60,13 +60,13 @@ const ECOSYSTEM: IEcosystemProps[] = [
     features: [
       {
         leadingIcon: 'approval',
-        title: 'Data Future Prediction',
+        title: 'Data-Driven Decision',
         body: 'Data-Driven Approach for Harnessing Past Recruitment Insights for Your Next On-Campus Recruitment'
       },
       {
         leadingIcon: 'check',
-        title: 'Custom Job Campaigns',
-        body: 'Accelerating Job Campaigns with Custom Templates Eliminating Repetitive Manual Creation.'
+        title: 'Compare Colleges',
+        body: 'Visit campus based on your requirements and compare them to make the best decision.'
       }
     ]
   }

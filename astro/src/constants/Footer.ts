@@ -27,9 +27,9 @@ const COMPANY: ICompany = {
   tncLink: '/terms-and-conditions',
   privacyTitle: 'Privacy Policy',
   privacyLink: '/privacy-policy',
-  address: '1234 North Main Street New York, NY 22222',
-  phone: '+1 (555) 555-5555',
-  email: 'hi@tyup.org'
+  address: 'Bhubaneswar, Odisha, India',
+  phone: '+91 0000000000',
+  email: 'tyup.official@gmail.com'
 }
 
 const FOOTER: IFooter[] = [
@@ -48,13 +48,13 @@ const FOOTER: IFooter[] = [
     name: 'campus',
     path: '/campus',
     description:
-      'Revolutionize your hiring process with speed and precision. Our end-to-end automation delivers top talent for your organization effortlessly.'
+      'Showcase your talent pool and reach out to companies with ease to enhance your campus placements.'
   },
   {
     name: 'recruit',
     path: '/recruit',
     description:
-      'Revolutionize your hiring process with speed and precision. Our end-to-end automation delivers top talent for your organization effortlessly.'
+      'Make data-driven decisions and optimize your recruitment process with speed and precision.'
   }
 ]
 
